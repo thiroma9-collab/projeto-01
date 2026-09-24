@@ -1,0 +1,334 @@
+1. Definição da classe Produto
+class Produto:
+
+A palavra-chave class define uma classe.
+
+Uma classe funciona como um modelo ou estrutura para criar objetos.
+
+Nesse caso, a classe Produto representa produtos que possuem:
+
+nome;
+preço.
+2. Método construtor __init__
+def __init__(self, nome, preco):
+
+O método __init__ é chamado automaticamente quando um objeto da classe é criado.
+
+Ele é conhecido como:
+
+método construtor;
+método inicializador.
+Parâmetros
+self
+self.nome = nome
+
+O parâmetro self representa o próprio objeto criado.
+
+Ele permite acessar os atributos e métodos da instância.
+
+nome
+
+Armazena o nome do produto.
+
+preco
+
+Armazena o preço do produto.
+
+3. Atributos da classe
+self.nome = nome
+self.preco = preco
+
+Essas linhas criam atributos dentro do objeto.
+
+Exemplo:
+
+produto = Produto("Notebook", 3500)
+
+O objeto possuirá:
+
+produto.nome = "Notebook"
+produto.preco = 3500
+4. Método exibir_dados
+def exibir_dados(self):
+
+Esse método pertence à classe Produto.
+
+Sua função é mostrar os dados do produto.
+
+Uso do print
+print(f"Produto: {self.nome} | Preço: R$ {self.preco:.2f}")
+
+Aqui é utilizada uma f-string.
+
+A letra f antes da string permite inserir variáveis diretamente no texto.
+
+Formatação :.2f
+{self.preco:.2f}
+
+Significa:
+
+mostrar número decimal;
+com exatamente 2 casas decimais.
+
+Exemplo:
+
+10 → 10.00
+5.5 → 5.50
+5. Lista produtos
+produtos = []
+
+Cria uma lista vazia.
+
+Ela será usada para armazenar os objetos Produto.
+
+Exemplo após cadastros:
+
+[
+    Produto("Mouse", 50),
+    Produto("Teclado", 120)
+]
+6. Função cadastrar_produto
+def cadastrar_produto():
+
+Função responsável pelo cadastro de produtos.
+
+7. Entrada de dados
+nome = input("Digite o nome do produto: ")
+
+A função input() captura dados digitados pelo usuário.
+
+O valor retornado é sempre do tipo str.
+
+8. Conversão para float
+preco = float(input(...).replace(",", "."))
+
+Aqui ocorre:
+
+leitura do preço;
+substituição de vírgula por ponto;
+conversão para número decimal.
+Método .replace()
+.replace(",", ".")
+
+Permite que o usuário digite:
+
+10,50
+
+Em vez de:
+
+10.50
+Conversão float()
+
+Transforma texto em número decimal.
+
+Exemplo:
+
+"15.90" → 15.9
+9. Validação de preço negativo
+if preco < 0:
+
+Verifica se o valor é negativo.
+
+Se for:
+
+print("O preço não pode ser negativo.")
+return
+
+O return encerra a função imediatamente.
+
+10. Criação do objeto
+produto = Produto(nome, preco)
+
+Cria uma instância da classe Produto.
+
+Exemplo:
+
+Produto("Monitor", 899.90)
+11. Adicionando na lista
+produtos.append(produto)
+
+O método .append() adiciona elementos ao final da lista.
+
+12. Tratamento de exceções
+except ValueError:
+
+Captura erros de conversão numérica.
+
+Exemplo de erro:
+
+float("abc")
+
+Isso geraria:
+
+ValueError
+13. Função listar_produtos
+def listar_produtos():
+
+Responsável por mostrar todos os produtos cadastrados.
+
+14. Verificação da lista vazia
+if len(produtos) == 0:
+
+A função len() retorna a quantidade de elementos.
+
+Se a lista estiver vazia:
+
+Nenhum produto cadastrado.
+15. Estrutura for
+for i, produto in enumerate(produtos, start=1):
+
+O enumerate() percorre a lista gerando:
+
+índice;
+elemento.
+start=1
+
+Faz a contagem começar em 1.
+
+Sem isso:
+
+0, 1, 2...
+
+Com isso:
+
+1, 2, 3...
+16. Exibição formatada
+print(f"{i} - {produto.nome} | R$ {produto.preco:.2f}")
+
+Mostra:
+
+número;
+nome;
+preço.
+17. Função comprar_produto
+def comprar_produto():
+
+Responsável pela simulação de compra.
+
+18. Verificação de produtos disponíveis
+if len(produtos) == 0:
+
+Evita compras sem produtos cadastrados.
+
+19. Escolha do produto
+indice = int(input("Digite o número do produto: "))
+
+Converte a entrada para inteiro.
+
+20. Validação do índice
+if indice < 1 or indice > len(produtos):
+
+Verifica se o número informado existe.
+
+Operador lógico or
+
+A∨B
+
+O operador or retorna verdadeiro quando pelo menos uma condição é verdadeira.
+
+Exemplo:
+
+5 < 1 or 5 > 3
+
+Resultado:
+
+True
+21. Quantidade do produto
+quantidade = int(input("Digite a quantidade: "))
+
+Recebe a quantidade desejada.
+
+22. Verificação da quantidade
+if quantidade <= 0:
+
+Impede quantidades inválidas.
+
+23. Ajuste do índice
+produto = produtos[indice - 1]
+
+A lista começa em índice 0.
+
+Mas o usuário escolhe começando em 1.
+
+Exemplo:
+
+Usuário	Índice real
+1	0
+2	1
+3	2
+24. Cálculo do total
+total = produto.preco * quantidade
+
+Multiplica:
+
+preço;
+quantidade.
+25. Estrutura condicional de desconto
+if total >= 100:
+
+Verifica se o total é maior ou igual a 100.
+
+Operador relacional >=
+
+a≥b
+
+Significa:
+
+maior ou igual.
+26. Tratamento de exceções múltiplas
+ValueError
+except ValueError:
+
+Captura erros de conversão.
+
+Exception
+except Exception as erro:
+
+Captura qualquer outro erro inesperado.
+
+A variável erro armazena a mensagem do erro.
+
+27. Laço principal do programa
+while True:
+
+Cria um laço infinito.
+
+O menu continuará aparecendo até o usuário sair.
+
+28. Menu do sistema
+print("1 - Cadastrar produto")
+
+Exibe as opções disponíveis.
+
+29. Entrada da opção
+opcao = input("Escolha uma opção: ").lower()
+
+.lower() converte o texto para minúsculas.
+
+Exemplo:
+
+"A" → "a"
+
+Embora nesse caso sejam números, o método não causa problemas.
+
+30. Estruturas condicionais do menu
+Cadastro
+if opcao == "1":
+Listagem
+elif opcao == "2":
+Compra
+elif opcao == "3":
+Encerramento
+elif opcao == "4":
+31. Comando break
+break
+
+Interrompe o laço while.
+
+Assim o programa termina.
+
+32. Tratamento de opção inválida
+else:
+    print("Opção inválida. Tente novamente.")
+
+Executado quando nenhuma opção válida é escolhida.
